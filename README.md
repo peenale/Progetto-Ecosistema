@@ -25,3 +25,26 @@ Preparate poi l’elenco delle task dei vari sprint da svolgere, e come ve le di
 usate le pagine di progetto per descrivere quello che pensate e ipotizzate in modo  
 che anche io possa comprenderlo.  
 ### Consegna finale del codice testato: 10 Marzo
+
+## Descrizione Ecosistema
+
+Gli animali quando nascono sono cuccioli e impiegano diversi giorni per diventare  
+adulti, e arrivati a una certa età muoiono. Quando sono adulti se esistono altri animali  
+della stessa specie di sesso opposto possono riprodursi (una volta nella vita con un  
+massimo di figli in tutta la loro vita) e generare un nuovo esemplare della loro specie  
+come bambino.
+
+Inoltre ogni animale adulto necessità che alcuni particolari piante siano presente  
+alcune piante per poter restare in vita altrimenti muore.
+
+> Es. Lupo, ci mette 5 giorni per diventare adulto, a 15 giorni muore, quando si  
+> riproduce può fare al massimo 3 figli, quando è adulto ha bisogno che ci siano  
+> un melo o un pero per sopravvivere.
+
+Le piante nascono come semi, dopo alcuni giorni diventano piante complete, e
+possono portare frutto per sfamare gli animali.
+
+> Es. Melo, ci mette 3 giorni per diventare una pianta completa.
+
+Il passaggio di un giorno genera una lunga stringa di log che contiene tutto quello che  
+è successo durante la giornata.
