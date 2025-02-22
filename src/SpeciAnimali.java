@@ -46,6 +46,4 @@ public enum SpeciAnimali {
         this.lifespan = lifespan;
         this.piante_commestibili = piante_commestibili;
     }
-
-
 }
