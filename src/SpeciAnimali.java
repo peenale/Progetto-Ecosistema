@@ -36,14 +36,14 @@ public enum SpeciAnimali {
     LAMA("Lama", 2, 40, List.of("")),
     PINGUINO_TATTICO_NUCLEARE_IMPERATORE("Pinguino tattico nucleare imperatore di livello 3", 10, 100, List.of(""));
 
-    public final String nome;
-    public final int max_figli;
-    public final int lifespan;
-    public final List<String> piante_commestibili;
+    public final String NOME;
+    public final int MAX_FIGLI;
+    public final int LIFESPAN;
+    public final List<String> PIANTE_COMMESTIBILI;
     SpeciAnimali(String nome, int max_figli, int lifespan, List<String> piante_commestibili) {
-        this.nome = nome;
-        this.max_figli = max_figli;
-        this.lifespan = lifespan;
-        this.piante_commestibili = piante_commestibili;
+        this.NOME = nome;
+        this.MAX_FIGLI = max_figli;
+        this.LIFESPAN = lifespan;
+        this.PIANTE_COMMESTIBILI = piante_commestibili;
     }
 }

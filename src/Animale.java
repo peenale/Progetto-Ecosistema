@@ -5,7 +5,6 @@ public class Animale {
     private char sesso;
     private boolean isHungry;
     private boolean hasReproduced;
-    private boolean isAdult;
 
     /**
      * Funzione che permette ad un animale di mangiare, se disponibile,
@@ -26,10 +25,10 @@ public class Animale {
             fse
         fciclo
          */
-    }
+   }
 
     public boolean isAdult() {
-        return isAdult;
+        return age > specie.LIFESPAN / 3;
     }
 
     public boolean hasReproduced() {
