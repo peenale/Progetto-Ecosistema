@@ -3,7 +3,7 @@ public class Pianta {
     private int eta;
     private boolean adulta, frutti;
 
-    public Pianta(SpeciePianta speciePianta, int eta, boolean adulta, boolean frutti){
+    public Pianta(SpeciePianta speciePianta){
         this.speciePianta = speciePianta;
         eta = 0;
         adulta = false;
@@ -19,15 +19,17 @@ public class Pianta {
     public boolean isFrutti() {
         return frutti;
     }
+    public SpeciePianta getSpeciePianta() { return speciePianta; }
+
     public void cresce(){
         eta++;
-        if(eta>=speciePianta.getGiorniCrescita())
+        if(!adulta && eta>=speciePianta.getGiorniPerCrescere())
             adulta = true;
-        if(eta>=speciePianta.getGiorniCrescita())
+        if(!frutti && eta>=speciePianta.getGiorniPerFrutti())
             frutti = true;
     }
 
-    public boolean muore(){
-        return eta>=speciePianta.getTempoVita();
+    public boolean isMorta(){
+        return eta>=speciePianta.getTempoDiVita();
     }
 }
