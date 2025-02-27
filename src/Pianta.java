@@ -13,7 +13,12 @@ public class Pianta {
     public int getEta() {
         return eta;
     }
-
+    public boolean isAdulta() {
+        return adulta;
+    }
+    public boolean isFrutti() {
+        return frutti;
+    }
     public void cresce(){
         eta++;
         if(eta>=speciePianta.getGiorniCrescita())
