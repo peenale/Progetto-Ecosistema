@@ -67,15 +67,15 @@ public class Animale {
      *     <li>L'animale non deve essere affamato</li>
      * </ul>
      *
-     * @param animali_ecosistema Lista degli animali presenti nell'ecosistema
+     * @param animaliEcosistema Lista degli animali presenti nell'ecosistema
      * @param globalTimer        Tempo di vita dell'ecosistema
      * @return numero di figli generati, SE generati (0 in caso contrario)
      */
-   public int riproduci(List<Animale> animali_ecosistema, int globalTimer) {
-        for (Animale animale : animali_ecosistema) {
+   public int riproduci(List<Animale> animaliEcosistema, int globalTimer) {
+        for (Animale animale : animaliEcosistema) {
             if (
                     animale != this &&
-                    animale.specie == this.specie &&
+                    animale.specie == this.specie && animale.getSesso() != this.getSesso() &&
                     !animale.hasReproduced() && !this.hasReproduced() &&
                     !animale.isHungry() && !this.isHungry()
             ) {
@@ -121,5 +121,9 @@ public class Animale {
 
     public SpecieAnimalie getSpecie() {
         return specie;
+    }
+
+    public char getSesso() {
+       return sesso;
     }
 }
