@@ -1,14 +1,33 @@
 import java.util.List;
 
 public class Animale {
-    private SpeciAnimali specie;
+    private SpecieAnimalie specie;
     private String nome;
     private int age;
     private int daysSinceLastMeal;
     private char sesso;
-    private boolean isHungry;
     private boolean hasReproduced;
     private boolean isDead;
+
+    public Animale(SpecieAnimalie specie, int globalTimer) {
+        this.specie = specie;
+        this.nome = specie.NOME + globalTimer;
+        this.age = 0;
+        this.sesso = globalTimer % 2 == 0 ? 'm' : 'f';
+        this.daysSinceLastMeal = 0;
+        this.hasReproduced = false;
+        this.isDead = false;
+    }
+
+    public Animale(SpecieAnimalie specie, int globalTimer, String nome) {
+        this.specie = specie;
+        this.nome = nome;
+        this.age = 0;
+        this.sesso = globalTimer % 2 == 0 ? 'm' : 'f';
+        this.daysSinceLastMeal = 0;
+        this.hasReproduced = false;
+        this.isDead = false;
+    }
 
     /**
      * Funzione che permette ad un animale di mangiare, se disponibile,
@@ -18,13 +37,18 @@ public class Animale {
      */
     public void mangia(List<Pianta> piante_disponibili) {
         for (Pianta pianta : piante_disponibili) {
-            if (isHungry && specie.PIANTE_COMMESTIBILI.contains(pianta.getSpeciePianta()) && pianta.isFrutti()) {
-                isHungry = false;
+            if (isHungry() && specie.PIANTE_COMMESTIBILI.contains(pianta.getSpeciePianta()) && pianta.hasFruits()) {
+                daysSinceLastMeal = 0;
                 return;
             }
         }
    }
 
+    /**
+     * <p>Funzione che incrementa l'età dell'animale.
+     * <p>Tiene traccia anche dei giorni passati dall'ultima volta che ha mangiato.
+     * <p>Si occupa anche della morte dell'animale per anzianità o per fame.
+     */
    public void cresce() {
         age++;
         daysSinceLastMeal++;
@@ -34,6 +58,19 @@ public class Animale {
         }
    }
 
+    /**
+     * <p>Funzione che permette ad un animale di riprodursi, se esiste un altro animale che
+     * soddisfa le caratteristiche di riproduzione.
+     * <p><b>CARATTERISTICHE DI RIPRODUZIONE:</b>
+     * <ul>
+     *     <li>L'animale deve essere adulto</li>
+     *     <li>L'animale non deve essere affamato</li>
+     * </ul>
+     *
+     * @param animali_ecosistema Lista degli animali presenti nell'ecosistema
+     * @param globalTimer        Tempo di vita dell'ecosistema
+     * @return numero di figli generati, SE generati (0 in caso contrario)
+     */
    public int riproduci(List<Animale> animali_ecosistema, int globalTimer) {
         for (Animale animale : animali_ecosistema) {
             if (
@@ -44,7 +81,7 @@ public class Animale {
             ) {
                 animale.setHasReproduced(true);
                 this.setHasReproduced(true);
-                return this.specie.MAX_FIGLI % globalTimer;
+                return (globalTimer % this.specie.MAX_FIGLI) + 1;
             }
         }
        return 0;
@@ -82,9 +119,7 @@ public class Animale {
         this.hasReproduced = hr;
     }
 
-    /*
-    public SpeciAnimali getSpecie() {
+    public SpecieAnimalie getSpecie() {
         return specie;
     }
-    */
 }

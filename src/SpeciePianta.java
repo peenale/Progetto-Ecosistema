@@ -10,20 +10,16 @@ public enum SpeciePianta {
     ACACIA("Acacia", 7, 45, 22),
     CANNE_DA_ZUCCHERO("Canne da zucchero", 5, 25, 12);
 
-    private final String nome;
-    private final int giorniPerCrescere;
-    private final int tempoDiVita;
-    private final int giorniPerFrutti;
+    public final String NOME;
+    public final int GIORNI_PER_CRESCERE;
+    public final int TEMPO_DI_VITA;
+    public final int GIORNI_PER_FRUTTI;
 
     SpeciePianta(String nome, int giorniPerCrescere, int tempoDiVita, int giorniPerFrutti) {
-        this.nome = nome;
-        this.giorniPerCrescere = giorniPerCrescere;
-        this.tempoDiVita = tempoDiVita;
-        this.giorniPerFrutti = giorniPerFrutti;
+        this.NOME = nome;
+        this.GIORNI_PER_CRESCERE = giorniPerCrescere;
+        this.TEMPO_DI_VITA = tempoDiVita;
+        this.GIORNI_PER_FRUTTI = giorniPerFrutti;
     }
 
-    public String getNome() { return nome; }
-    public int getGiorniPerCrescere() { return giorniPerCrescere; }
-    public int getTempoDiVita() { return tempoDiVita; }
-    public int getGiorniPerFrutti() { return giorniPerFrutti; }
 }

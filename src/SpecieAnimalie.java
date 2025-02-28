@@ -24,7 +24,7 @@ Pinguini Tattici Nucleari Imperatori (livello 3) (si chiama Gaio Giulio Cesare O
 Lama
 * */
 
-public enum SpeciAnimali {
+public enum SpecieAnimalie {
     LUPO("Lupo", 4, 20, 5, List.of(SpeciePianta.MELO)),
     ORSO("Orso", 2, 30, 14, List.of(SpeciePianta.BETULLA)),
     SCIMMIA("Scimmia", 2, 25, 5, List.of(SpeciePianta.BANANO)),
@@ -41,7 +41,7 @@ public enum SpeciAnimali {
     public final int LIFESPAN;
     public final int GIORNI_PER_FAME;
     public final List<SpeciePianta> PIANTE_COMMESTIBILI;
-    SpeciAnimali(String nome, int max_figli, int lifespan, int giorni_per_fame, List<SpeciePianta> piante_commestibili) {
+    SpecieAnimalie(String nome, int max_figli, int lifespan, int giorni_per_fame, List<SpeciePianta> piante_commestibili) {
         this.NOME = nome;
         this.MAX_FIGLI = max_figli;
         this.LIFESPAN = lifespan;

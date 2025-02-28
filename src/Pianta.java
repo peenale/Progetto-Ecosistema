@@ -1,35 +1,36 @@
 public class Pianta {
     private SpeciePianta speciePianta;
-    private int eta;
-    private boolean adulta, frutti;
+    private int age;
+    private boolean fruits;
 
     public Pianta(SpeciePianta speciePianta){
         this.speciePianta = speciePianta;
-        eta = 0;
-        adulta = false;
-        frutti = false;
+        age = 0;
+        fruits = false;
     }
 
-    public int getEta() {
-        return eta;
+    public int getAge() {
+        return age;
     }
-    public boolean isAdulta() {
-        return adulta;
+    public boolean isAdult() {
+        return age >= speciePianta.GIORNI_PER_CRESCERE;
     }
-    public boolean isFrutti() {
-        return frutti;
+    public boolean hasFruits() {
+        return fruits;
     }
     public SpeciePianta getSpeciePianta() { return speciePianta; }
 
+    /**
+     * <p>Aumenta l'età della pianta.
+     * <p>Si occupa anche di far crescere i frutti dell'albero.
+     */
     public void cresce(){
-        eta++;
-        if(!adulta && eta>=speciePianta.getGiorniPerCrescere())
-            adulta = true;
-        if(!frutti && eta>=speciePianta.getGiorniPerFrutti())
-            frutti = true;
+        age++;
+        if(!hasFruits() && isAdult())
+            fruits = true;
     }
 
-    public boolean isMorta(){
-        return eta>=speciePianta.getTempoDiVita();
+    public boolean isDead(){
+        return age >=speciePianta.TEMPO_DI_VITA;
     }
 }
