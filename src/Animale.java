@@ -1,10 +1,14 @@
+import java.util.List;
+
 public class Animale {
     private SpeciAnimali specie;
     private String nome;
     private int age;
+    private int daysSinceLastMeal;
     private char sesso;
     private boolean isHungry;
     private boolean hasReproduced;
+    private boolean isDead;
 
     /**
      * Funzione che permette ad un animale di mangiare, se disponibile,
@@ -13,18 +17,37 @@ public class Animale {
      * @param   piante_disponibili Lista delle piante disponibili nell'Ecosistema
      */
     public void mangia(List<Pianta> piante_disponibili) {
-        //TODO implementare il metodo dopo la creazione della classe Pianta
-            //FIXME aggiungere le classi mancanti
-            // - Pianta
-            // - SpeciPiante
+        for (Pianta pianta : piante_disponibili) {
+            if (isHungry && specie.PIANTE_COMMESTIBILI.contains(pianta.getSpeciePianta()) && pianta.isFrutti()) {
+                isHungry = false;
+                return;
+            }
+        }
+   }
 
-        /*
-        per ogni pianta tra le piante_commestibili:
-            se ha fame E se è presente nelle piante_disponibili E se la pianta ha frutti
-                diminuisci il numero di frutti della pianta
-            fse
-        fciclo
-         */
+   public void cresce() {
+        age++;
+        daysSinceLastMeal++;
+
+        if (age >= specie.LIFESPAN || daysSinceLastMeal >= 1.5*specie.GIORNI_PER_FAME) {
+            isDead = true;
+        }
+   }
+
+   public int riproduci(List<Animale> animali_ecosistema, int globalTimer) {
+        for (Animale animale : animali_ecosistema) {
+            if (
+                    animale != this &&
+                    animale.specie == this.specie &&
+                    !animale.hasReproduced() && !this.hasReproduced() &&
+                    !animale.isHungry() && !this.isHungry()
+            ) {
+                animale.setHasReproduced(true);
+                this.setHasReproduced(true);
+                return this.specie.MAX_FIGLI % globalTimer;
+            }
+        }
+       return 0;
    }
 
     public boolean isAdult() {
@@ -36,7 +59,7 @@ public class Animale {
     }
 
     public boolean isHungry() {
-        return isHungry;
+        return daysSinceLastMeal >= specie.GIORNI_PER_FAME;
     }
 
     public int getAge() {
@@ -45,6 +68,18 @@ public class Animale {
 
     public String getNome() {
         return nome;
+    }
+
+    public int getDaysSinceLastMeal() {
+        return daysSinceLastMeal;
+    }
+
+    public boolean isDead() {
+        return isDead;
+    }
+
+    public void setHasReproduced(boolean hr) {
+        this.hasReproduced = hr;
     }
 
     /*

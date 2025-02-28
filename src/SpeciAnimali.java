@@ -25,25 +25,27 @@ Lama
 * */
 
 public enum SpeciAnimali {
-    LUPO("Lupo", 4, 20, List.of("")),
-    ORSO("Orso", 2, 30, List.of("")),
-    SCIMMIA("Scimmia", 2, 25, List.of("")),
-    DODO("Dodo", 3, 15, List.of("")),
-    GATTO("Gatto", 5, 20, List.of("")),
-    PINGUINO("Pinguino", 2, 30, List.of("")),
-    CANE("Cane", 7, 25, List.of("")),
-    ORNITORINCO("Ornitorinco", 3, 30, List.of("")),
-    LAMA("Lama", 2, 40, List.of("")),
-    PINGUINO_TATTICO_NUCLEARE_IMPERATORE("Pinguino tattico nucleare imperatore di livello 3", 10, 100, List.of(""));
+    LUPO("Lupo", 4, 20, 5, List.of(SpeciePianta.MELO)),
+    ORSO("Orso", 2, 30, 14, List.of(SpeciePianta.BETULLA)),
+    SCIMMIA("Scimmia", 2, 25, 5, List.of(SpeciePianta.BANANO)),
+    DODO("Dodo", 3, 15, 5, List.of(SpeciePianta.CANAPA)),
+    GATTO("Gatto", 5, 20, 7, List.of(SpeciePianta.CANNE_DA_ZUCCHERO)),
+    PINGUINO("Pinguino", 2, 30, 10, List.of(SpeciePianta.SEQUOIA)),
+    CANE("Cane", 7, 25, 5, List.of(SpeciePianta.POMODORI)),
+    ORNITORINCO("Ornitorinco", 3, 30, 6, List.of(SpeciePianta.ACACIA)),
+    LAMA("Lama", 2, 40, 10, List.of(SpeciePianta.PERO)),
+    PINGUINO_TATTICO_NUCLEARE_IMPERATORE("Pinguino tattico nucleare imperatore di livello 3", 10, 100, 4, List.of(SpeciePianta.ALLORO));
 
     public final String NOME;
     public final int MAX_FIGLI;
     public final int LIFESPAN;
-    public final List<String> PIANTE_COMMESTIBILI;
-    SpeciAnimali(String nome, int max_figli, int lifespan, List<String> piante_commestibili) {
+    public final int GIORNI_PER_FAME;
+    public final List<SpeciePianta> PIANTE_COMMESTIBILI;
+    SpeciAnimali(String nome, int max_figli, int lifespan, int giorni_per_fame, List<SpeciePianta> piante_commestibili) {
         this.NOME = nome;
         this.MAX_FIGLI = max_figli;
         this.LIFESPAN = lifespan;
+        this.GIORNI_PER_FAME = giorni_per_fame;
         this.PIANTE_COMMESTIBILI = piante_commestibili;
     }
 }
