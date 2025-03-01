@@ -37,7 +37,7 @@ public class Animale {
      */
     public void mangia(List<Pianta> piante_disponibili) {
         for (Pianta pianta : piante_disponibili) {
-            if (isHungry() && specie.PIANTE_COMMESTIBILI.contains(pianta.getSpeciePianta()) && pianta.hasFruits()) {
+            if (isHungry() && specie.PIANTE_COMMESTIBILI.contains(pianta.getSpecie()) && pianta.hasFruits()) {
                 daysSinceLastMeal = 0;
                 return;
             }
@@ -125,5 +125,9 @@ public class Animale {
 
     public char getSesso() {
        return sesso;
+    }
+
+    public String log() {
+       return String.join("-", specie.NOME, this.nome, String.valueOf(this.sesso), String.valueOf(this.age), String.valueOf(this.isAdult()), String.valueOf(this.daysSinceLastMeal), String.valueOf(this.isHungry()), String.valueOf(this.hasReproduced()), String.valueOf(this.isDead()));
     }
 }

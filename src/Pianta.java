@@ -1,10 +1,10 @@
 public class Pianta {
-    private SpeciePianta speciePianta;
+    private SpeciePianta specie;
     private int age;
     private boolean fruits;
 
     public Pianta(SpeciePianta speciePianta){
-        this.speciePianta = speciePianta;
+        this.specie = speciePianta;
         age = 0;
         fruits = false;
     }
@@ -13,12 +13,12 @@ public class Pianta {
         return age;
     }
     public boolean isAdult() {
-        return age >= speciePianta.GIORNI_PER_CRESCERE;
+        return age >= specie.GIORNI_PER_CRESCERE;
     }
     public boolean hasFruits() {
         return fruits;
     }
-    public SpeciePianta getSpeciePianta() { return speciePianta; }
+    public SpeciePianta getSpecie() { return specie; }
 
     /**
      * <p>Aumenta l'età della pianta.
@@ -31,6 +31,10 @@ public class Pianta {
     }
 
     public boolean isDead(){
-        return age >=speciePianta.TEMPO_DI_VITA;
+        return age >= specie.TEMPO_DI_VITA;
+    }
+
+    public String log() {
+        return String.join("-", specie.NOME, String.valueOf(this.age), String.valueOf(this.isAdult()), String.valueOf(this.hasFruits()), String.valueOf(this.isDead()));
     }
 }
