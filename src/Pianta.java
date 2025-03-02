@@ -19,15 +19,19 @@ public class Pianta {
     public boolean isFrutti() {
         return frutti;
     }
+    public SpeciePianta getSpeciePianta(){
+        return speciePianta;
+    }
+
     public void cresce(){
         eta++;
-        if(eta>=speciePianta.getGiorniCrescita())
+        if(eta>=speciePianta.getGiorniPerCrescere())
             adulta = true;
-        if(eta>=speciePianta.getGiorniCrescita())
+        if(eta>=speciePianta.getGiorniPerFrutti())
             frutti = true;
     }
 
-    public boolean muore(){
-        return eta>=speciePianta.getTempoVita();
+    public boolean isMorta(){
+        return eta>=speciePianta.getTempoDiVita();
     }
 }
