@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.List;
 
 public class Ecosistema {
@@ -28,11 +29,13 @@ public class Ecosistema {
             System.out.println(pianta.log());
         }
 
-        for (Animale animale : animali) {
+        Iterator<Animale> iterator = animali.iterator();
+        while (iterator.hasNext()) {
+            Animale animale = iterator.next();
             animale.cresce();
 
             if (animale.isDead()) {
-                animali.remove(animale);
+                iterator.remove();
             } else {
                 animale.mangia(piante);
                 animale.riproduci(animali, globalTimer);
