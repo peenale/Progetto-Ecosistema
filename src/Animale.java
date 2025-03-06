@@ -29,6 +29,16 @@ public class Animale {
         this.isDead = false;
     }
 
+    public Animale(SpecieAnimalie specie, int age, int daysSinceLastMeal, int globalTimer, String nome) {
+        this.specie = specie;
+        this.nome = nome;
+        this.age = age;
+        this.sesso = globalTimer % 2 == 0 ? 'm' : 'f';
+        this.daysSinceLastMeal = daysSinceLastMeal;
+        this.hasReproduced = false;
+        this.isDead = false;
+    }
+
     /**
      * Funzione che permette ad un animale di mangiare, se disponibile,
      * un frutto di una pianta per sopravvivere.
