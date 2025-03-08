@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -7,8 +8,8 @@ public class Ecosistema {
     private List<Pianta> piante;
 
     public Ecosistema(List<Animale> animali, List<Pianta> piante) {
-        this.animali = animali;
-        this.piante = piante;
+        this.animali = new ArrayList<>(animali);
+        this.piante = new ArrayList<>(piante);
         globalTimer = 0;
     }
 
@@ -30,6 +31,7 @@ public class Ecosistema {
         }
 
         Iterator<Animale> iterator = animali.iterator();
+        List<Animale> nuoviAnimali = new ArrayList<>();
         while (iterator.hasNext()) {
             Animale animale = iterator.next();
             animale.cresce();
@@ -38,12 +40,17 @@ public class Ecosistema {
                 iterator.remove();
             } else {
                 animale.mangia(piante);
-                animale.riproduci(animali, globalTimer);
+                int figli = animale.riproduci(animali, globalTimer);
+
+                for (int i = 0; i < figli; i++) {
+                    nuoviAnimali.add(new Animale(animale.getSpecie(), this.globalTimer));
+                }
             }
 
             System.out.println(animale.log());
         }
 
+        animali.addAll(nuoviAnimali);
         System.out.println();
     }
 
