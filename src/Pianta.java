@@ -18,6 +18,7 @@ public class Pianta {
     public boolean hasFruits() {
         return fruits;
     }
+
     public SpeciePianta getSpecie() { return specie; }
 
     /**
