@@ -29,11 +29,11 @@ public class Animale {
         this.isDead = false;
     }
 
-    public Animale(SpecieAnimalie specie, int age, int daysSinceLastMeal, int globalTimer, String nome) {
+    public Animale(SpecieAnimalie specie, int age, int daysSinceLastMeal, char sesso, String nome) {
         this.specie = specie;
         this.nome = nome;
         this.age = age;
-        this.sesso = globalTimer % 2 == 0 ? 'm' : 'f';
+        this.sesso = sesso;
         this.daysSinceLastMeal = daysSinceLastMeal;
         this.hasReproduced = false;
         this.isDead = false;
