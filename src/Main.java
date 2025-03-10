@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         List<Animale> animali_iniziali = List.of(
                 new Animale(SpecieAnimalie.PINGUINO_TATTICO_NUCLEARE_IMPERATORE, 0, 0, 'm', "Gaio Giulio Cesare Ottaviano Augusto"),
-                new Animale(SpecieAnimalie.PINGUINO_TATTICO_NUCLEARE_IMPERATORE, 0, 0, 'f', "Augusto Ottaviano Cesare Giulio Gaio"),
+                new Animale(SpecieAnimalie.PINGUINO_TATTICO_NUCLEARE_IMPERATORE, 0, 0, 'f', "Livia Drusilla"),
                 new Animale(SpecieAnimalie.ORNITORINCO, 0, 0, 'm', "Perry"),
                 new Animale(SpecieAnimalie.ORNITORINCO, 0, 0, 'f', "Reppy"),
                 new Animale(SpecieAnimalie.DODO, 0, 0, 'm', "🤡"),
