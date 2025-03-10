@@ -1,17 +1,25 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Invio with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        List<Animale> animali_iniziali = List.of(
+                new Animale(SpecieAnimalie.PINGUINO_TATTICO_NUCLEARE_IMPERATORE, 0, 0, 'm', "Gaio Giulio Cesare Ottaviano Augusto"),
+                new Animale(SpecieAnimalie.PINGUINO_TATTICO_NUCLEARE_IMPERATORE, 0, 0, 'f', "Livia Drusilla"),
+                new Animale(SpecieAnimalie.ORNITORINCO, 0, 0, 'm', "Perry"),
+                new Animale(SpecieAnimalie.ORNITORINCO, 0, 0, 'f', "Reppy"),
+                new Animale(SpecieAnimalie.DODO, 0, 0, 'm', "🤡"),
+                new Animale(SpecieAnimalie.DODO, 0, 0, 'f', "🍋")
+        );
+        List<Pianta> piante_iniziali = List.of(
+                new Pianta(SpeciePianta.ALLORO),
+                new Pianta(SpeciePianta.CANAPA),
+                new Pianta(SpeciePianta.ACACIA)
+        );
 
-        // Press Maiusc+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Ecosistema ecosistema = new Ecosistema(animali_iniziali, piante_iniziali);
 
-            // Press Maiusc+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        while (!ecosistema.getAnimali().isEmpty()) {
+            ecosistema.avanzaGiorno();
         }
     }
 }
