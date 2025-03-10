@@ -73,8 +73,10 @@ public class Animale {
      * soddisfa le caratteristiche di riproduzione.
      * <p><b>CARATTERISTICHE DI RIPRODUZIONE:</b>
      * <ul>
-     *     <li>L'animale deve essere adulto</li>
-     *     <li>L'animale non deve essere affamato</li>
+     *     <li>Gli animali devono essere adulti</li>
+     *     <li>Gli animali non devono essere affamati</li>
+     *     <li>Gli animali non devono essersi già riprodotti</li>
+     *     <li>Gli animali devono essere di sesso diverso</li>
      * </ul>
      *
      * @param animaliEcosistema Lista degli animali presenti nell'ecosistema
@@ -85,6 +87,7 @@ public class Animale {
         for (Animale animale : animaliEcosistema) {
             if (
                     animale != this &&
+                    animale.isAdult() && this.isAdult() &&
                     animale.specie == this.specie && animale.getSesso() != this.getSesso() &&
                     !animale.hasReproduced() && !this.hasReproduced() &&
                     !animale.isHungry() && !this.isHungry()
